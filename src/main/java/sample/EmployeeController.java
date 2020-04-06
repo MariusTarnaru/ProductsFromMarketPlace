@@ -1,28 +1,23 @@
 package sample;
 
-import com.sun.javafx.collections.MappingChange;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import lombok.val;
 import org.hibernate.Session;
-import org.hibernate.query.Query;
 import sample.Utils.HibernateUtil;
 import sample.Utils.ProductDao;
+import sample.Utils.UserDao;
 import sample.entity.Product;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.List;
 
-public class CustomerController {
+public class EmployeeController {
 
     @FXML
     TableView<ProductDao> productTable;
@@ -34,7 +29,6 @@ public class CustomerController {
     TableColumn<Product, Integer> quantity;
     @FXML
     private Label wantToBuyLabel;
-
 
     private static Session session = HibernateUtil.getSession();
 
@@ -50,28 +44,20 @@ public class CustomerController {
     void onReturnClicked() throws IOException {
         Main.showParentScene();
     }
-
     @FXML
-    void onBuyProductClicked() {
+    void buyWithDiscount(){
         wantToBuyLabel.setText("You select: " + productTable.getSelectionModel().getSelectedItem());
 
     }
-
     @FXML
-    public void selectOneProduct(MouseEvent mouseEvent) {
-        List<ProductDao> name = Collections.singletonList(productTable.getSelectionModel().getSelectedItem());
-        Iterator iterator = name.iterator();
-        String s = name.toString();
-        System.out.println(s);
-        /*while(iterator.hasNext()) {
-            System.out.println(iterator.next());}*/
+    public void selectOneProduct(MouseEvent mouseEvent){
+        productTable.getSelectionModel().getSelectedItem();
     }
-
-    public void showAllProducts() {
+    public void showAllProducts(){
         ProductDao products = new ProductDao();
         List<ProductDao> result = products.getAllProducts();
         ObservableList<ProductDao> observableArrayList;
-        observableArrayList = FXCollections.observableArrayList(result);
+        observableArrayList = FXCollections.observableArrayList (result);
         productTable.setItems(observableArrayList);
     }
 }

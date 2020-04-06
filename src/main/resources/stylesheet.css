@@ -1,0 +1,23 @@
+.button{
+    -fx-font-size:15px;
+    -fx-background-color: rgba(215, 255, 250, .80);
+
+
+}
+.productTable{
+    -fx-font-size:15px;
+    -fx-background-color: rgba(215, 255, 250, .80);
+    -fx-font-family: "Lucida Console", Courier, monospace;
+    
+}
+#nameOfProduct{
+    -fx-font-size:15px;
+    -fx-background-color: rgba(215, 255, 250, .80);
+    -fx-font-family: Impact, Charcoal, sans-serif;
+}
+.root{
+    -fx-background-image: url("file:///D:/JAVA/ProductsFromMarketPlace/src/main/resources/background.jpg");
+    -fx-background-size: 350.0 170.0;
+    -fx-opacity: 0.9;
+
+}
